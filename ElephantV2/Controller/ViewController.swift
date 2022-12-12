@@ -59,24 +59,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        var currentDeadline = Date()
         
         
-        let currentDeadline2 = Calendar.current.date(byAdding: .day, value: 6, to: Date())
-        let newProj = Project(name: "Terrible", completed: false, priority: 4, cycle: false, deadline: currentDeadline2)
-        let insertMe = newProj.name
-        model.projectArray.append(newProj)
+//        let currentDeadline2 = Calendar.current.date(byAdding: .day, value: 6, to: Date())
+//        let newProj = Project(name: "Terrible", completed: false, priority: 4, cycle: false, deadline: currentDeadline2)
+//        let insertMe = newProj.name
+//        model.projectArray.append(newProj)
         
 //        model.insertProject(deadline: currentDeadline2!, proj: insertMe)
 //        model.connectLevel(proj: "Piano")
-        print(model.activeArray)
+//        print(model.activeArray)
 //        let myItem = model.activeArray[0]
 //        model.splitAndKick(currentItem: myItem)
 //        model.discardProject(proj: "Piano")
 //        let anItem = model.activeArray[2]
 //        model.deleteAndQuicken(chosenItem: anItem)
 //        model.activateNextItem()
-        print(model.activeArray)
-        model.saveItems()
+//        print(model.activeArray)
+//        model.saveItems()
         
-        model.backupPlistFiles()
+//        model.backupPlistFiles()
     }
     
     
@@ -220,15 +220,55 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //show Item project
     
+    
+    @IBAction func showItemProject(_ sender: UIButton) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let removeNoneProjects = model.projectArray.filter({ $0.name != "None"})
+        var newInt = 0
+        let projSelected = currentSelection.project
+        if projSelected != "None" {
+            let lookUpIndex = removeNoneProjects.firstIndex { $0.name == projSelected }
+            newInt = lookUpIndex!
+        } else {
+            newInt = 0
+        }
+        
+        if (segue.identifier == "showProjectsOfItem") {
+            // pass data to next view
+            let viewController = segue.destination as? ProjectsViewController
+            
+            viewController?.removeNoneProjects = removeNoneProjects
+            viewController?.selectedPickerValue = newInt
+        }
+    }
+    
+    
     //snip and quick
     
     
+
+        
+        
     
+    
+    
+
     
     
 //MARK: - Fourth Row Items
     
     
+    @IBAction func backupPlistButton(_ sender: UIButton) {
+        model.backupPlistFiles()
+        let alert = UIAlertController(title: "Files Saved.", message: "", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            alert.dismiss(animated: true, completion: nil)
+        })
+    }
     
     
     

@@ -16,8 +16,10 @@ class Model {
     var projectArray: [Project] = []
     var uniqueNumCounter: Int = 0
     
-    var completeRate = 4
+    var completeRate = 2
     var insertArray: [Item] = []
+    
+    let calendar = Calendar.current
     
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("ActiveItems.plist")
     let inactiveFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("InactiveItems.plist")
@@ -27,41 +29,110 @@ class Model {
 
     init() {
         
-
-        activeArray =
-        [
-            Item(title: "First Item", timeDone: Date(), project: "None", uniqueNum: 1, status: "Active"),
-            Item(title: "Second Item", timeDone: Date(), project: "Piano", uniqueNum: 2, status: "Active"),
-            Item(title: "Third Item", timeDone: Date(), project: "None", uniqueNum: 3, status: "Active"),
-            Item(title: "Fourth Item", timeDone: Date(), project: "None", uniqueNum: 4, status: "Active"),
-            Item(title: "Fifth Item", timeDone: Date(), project: "None", uniqueNum: 5, status: "Active"),
-            Item(title: "Sixth Item", timeDone: Date(), project: "Cleaning", uniqueNum: 6, status: "Active"),
-            Item(title: "Seventh Item", timeDone: Date(), project: "None", uniqueNum: 7, status: "Active"),
-            Item(title: "Eighth Item", timeDone: Date(), project: "None", uniqueNum: 8, status: "Active"),
-            Item(title: "Nineth Item", timeDone: Date(), project: "None", uniqueNum: 9, status: "Active")
-        ]
-
-        inactiveArray =
-        [
-            Item(title: "Tenth Item", timeDone: Date(), project: "None", uniqueNum: 10, status: "Inact"),
-            Item(title: "Eleventh Item", timeDone: Date(), project: "None", uniqueNum: 11, status: "Inact"),
-            Item(title: "Twelveth Item", timeDone: Date(), project: "Piano", uniqueNum: 12, status: "Inact"),
-            Item(title: "Thirteenth Item", timeDone: Date(), project: "None", uniqueNum: 13, status: "Inact"),
-            Item(title: "Fourteenth Item", timeDone: Date(), project: "Piano", uniqueNum: 14, status: "Inact"),
-            Item(title: "Fifteenth Item", timeDone: Date(), project: "Piano", uniqueNum: 15, status: "Inact")
-        ]
+        
+        
+        loadItems()
+//        activeArray =
+//        [
+//            Item(title: "First Item", timeDone: Date(), project: "Wix", uniqueNum: 1, status: "Active"),
+//            Item(title: "Second Item", timeDone: Date(), project: "Piano", uniqueNum: 2, status: "Active"),
+//            Item(title: "Third Item", timeDone: Date(), project: "None", uniqueNum: 3, status: "Active"),
+//            Item(title: "Fourth Item", timeDone: Date(), project: "None", uniqueNum: 4, status: "Active"),
+//            Item(title: "Fifth Item", timeDone: Date(), project: "None", uniqueNum: 5, status: "Active"),
+//            Item(title: "Sixth Item", timeDone: Date(), project: "Cleaning", uniqueNum: 6, status: "Active"),
+//            Item(title: "Seventh Item", timeDone: Date(), project: "None", uniqueNum: 7, status: "Active"),
+//            Item(title: "Eighth Item", timeDone: Date(), project: "None", uniqueNum: 8, status: "Active"),
+//            Item(title: "Nineth Item", timeDone: Date(), project: "None", uniqueNum: 9, status: "Active")
+//        ]
 //
-        projectArray =
-        [
-            Project(name: "None", completed: false, priority: 100000, cycle: false, deadline: nil),
-            Project(name: "Piano", completed: false, priority: 3, cycle: false, deadline: nil),
-            Project(name: "Cleaning", completed: false, priority: 3, cycle: true, deadline: nil),
-            Project(name: "Wix", completed: false, priority: 3, cycle: true, deadline: nil)
-        ]
+//        inactiveArray =
+//        [
+//            Item(title: "Tenth Item", timeDone: Date(), project: "None", uniqueNum: 10, status: "Inact"),
+//            Item(title: "Eleventh Item", timeDone: Date(), project: "None", uniqueNum: 11, status: "Inact"),
+//            Item(title: "Twelveth Item", timeDone: Date(), project: "Piano", uniqueNum: 12, status: "Inact"),
+//            Item(title: "Thirteenth Item", timeDone: Date(), project: "None", uniqueNum: 13, status: "Inact"),
+//            Item(title: "Fourteenth Item", timeDone: Date(), project: "Piano", uniqueNum: 14, status: "Inact"),
+//            Item(title: "Fifteenth Item", timeDone: Date(), project: "Piano", uniqueNum: 15, status: "Inact")
+//        ]
+////
+//        projectArray =
+//        [
+//            Project(name: "None", completed: false, priority: 100000, cycle: false, deadline: nil),
+//            Project(name: "Piano", completed: false, priority: 3, cycle: false, deadline: nil),
+//            Project(name: "Cleaning", completed: false, priority: 3, cycle: true, deadline: nil),
+//            Project(name: "Wix", completed: false, priority: 3, cycle: true, deadline: nil)
+//        ]
+//
+//
+//        let date1 = calendar.date(byAdding: .day, value: -1, to: Date())
+//        let date2 = calendar.date(byAdding: .day, value: -2, to: Date())
+//        let date3 = calendar.date(byAdding: .day, value: -3, to: Date())
+//        let date4 = calendar.date(byAdding: .day, value: -4, to: Date())
+//        savedItems =
+//
+//        [
+//            Item(title: "21 Item", timeDone: date2!, project: "None", uniqueNum: 21, status: "Inact"),
+//            Item(title: "22 Item", timeDone: date1!, project: "None", uniqueNum: 22, status: "Inact"),
+//            Item(title: "23 Item", timeDone: date1!, project: "None", uniqueNum: 23, status: "Inact"),
+//            Item(title: "24 Item", timeDone: date1!, project: "None", uniqueNum: 24, status: "Inact"),
+//            Item(title: "25 Item", timeDone: date2!, project: "None", uniqueNum: 25, status: "Inact"),
+//            Item(title: "26 Item", timeDone: date2!, project: "None", uniqueNum: 26, status: "Inact"),
+//            Item(title: "27 Item", timeDone: date2!, project: "None", uniqueNum: 27, status: "Inact"),
+//            Item(title: "28 Item", timeDone: date3!, project: "None", uniqueNum: 28, status: "Inact"),
+//            Item(title: "29 Item", timeDone: date3!, project: "None", uniqueNum: 29, status: "Inact"),
+//            Item(title: "30 Item", timeDone: date4!, project: "None", uniqueNum: 30, status: "Inact")
+//
+//        ]
+     
 //
         uniqueNumCounter = activeArray.count + inactiveArray.count + savedItems.count
+        calculateCompleteRate()
         
     }
+    
+    
+    func calculateCompleteRate() {
+        var oneArray: [Int] = []
+        var limitCounter = 0
+        for randItem in savedItems {
+            if limitCounter < 30 {
+                if let checkNil = randItem.timeDone {
+                    let components = calendar.dateComponents([.day], from: randItem.timeDone!)
+                    oneArray.append(components.day!)
+                    limitCounter += 1
+                } else {
+                    limitCounter += 1
+                }
+            }
+        }
+
+        let mappedItems = oneArray.map { ($0, 1)}
+        let counts = Dictionary(mappedItems, uniquingKeysWith: +)
+
+        var numerator = 0
+        var denominator = 0
+        var averageRate: Double = 0
+
+        for (day, itemsDone) in counts {
+            if itemsDone > 1 {
+                denominator += 1
+                numerator = numerator + itemsDone
+            }
+        }
+
+        if denominator == 0 {
+            averageRate = 10
+        } else {
+            averageRate = Double(numerator)/Double(denominator)
+        }
+
+        if averageRate < 6 {
+            averageRate = 6
+        }
+        completeRate = Int(averageRate)
+
+    }
+    
     
     func addItemNoneProject(itemTitle: String) {
         uniqueNumCounter += 1
@@ -78,7 +149,9 @@ class Model {
         uniqueNumCounter -= 1
     }
     
-    
+    func calcCompleteRate() {
+        
+    }
     
     
     
@@ -126,9 +199,12 @@ class Model {
     func completeItem(uniqueNumba: Int) {
         let currentIndex = activeArray.firstIndex { $0.uniqueNum == uniqueNumba }
         
-    // add duplicate item to end if cycle
-        let currentProject = activeArray[currentIndex!].project
-        if activeArray[currentIndex!].checkCycle(projectName: currentProject, checkArray: projectArray) {
+        
+        let currentProjectOfItem = activeArray[currentIndex!].project
+        let currentProjectIndex = projectArray.firstIndex { $0.name == currentProjectOfItem}
+        let cycleOfProject = projectArray[currentProjectIndex!].cycle
+        
+        if cycleOfProject {
             activeArray[currentIndex!].status = "Inactive"
             inactiveArray.append(activeArray[currentIndex!])
         } else {
@@ -191,6 +267,43 @@ class Model {
         }
 
     }
+    
+    func insertProjectByHaste(haste: Int, proj: String) {
+        var tempArray: [Item] = []
+        for everyItem in inactiveArray {
+            if everyItem.project == proj {
+                tempArray.append(everyItem)
+            }
+        }
+        
+
+//        let numbTasksProject = tempArray.count
+//        let firstItemInsert = totalTasksUntilComp / numbTasksProject
+//        print(firstItemInsert)
+//        let secondItemInsert = (totalTasksUntilComp / numbTasksProject) * 2
+//        print(secondItemInsert)
+
+        var tempCounter = 1
+        for insertItem in tempArray {
+            var newItem = insertItem
+            let insertIndx = completeRate * tempCounter * haste
+            if insertIndx < activeArray.count {
+                newItem.status = "Active"
+                activeArray.insert(newItem, at: insertIndx)
+                tempCounter += 1
+                print(insertIndx)
+                
+                let firstIndx = inactiveArray.firstIndex { $0.uniqueNum == newItem.uniqueNum}
+                inactiveArray.remove(at: firstIndx!)
+                
+                
+            } else {
+                print("no more")
+            }
+        }
+
+    }
+
     
     func connectLevel(proj: String) {
         let lastIndx = activeArray.lastIndex { $0.project == proj }

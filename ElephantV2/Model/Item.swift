@@ -22,12 +22,12 @@ struct Item: Codable {
         return dateFormatter.string(from: date)
     }
     
-    func checkCycle(projectName: String, checkArray: [Project]) -> Bool {
-        if let projectIndex = checkArray.firstIndex { $0.name == projectName } {
-            return checkArray[projectIndex].cycle
-        }
-        return false
-    }
+//    func checkCycle(projectName: String, checkArray: [Project]) -> Bool {
+//        if let projectIndex = checkArray.firstIndex { $0.name == projectName } {
+//            return checkArray[projectIndex].cycle
+//        }
+//        return false
+//    }
     
 }
 

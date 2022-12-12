@@ -12,7 +12,8 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBOutlet weak var projectDropdown: UIPickerView!
     @IBOutlet weak var projectItemsTable: UITableView!
     
-    
+    var currentSelection: Item = Item(title: "Placeholder", timeDone: Date(), project: "None", uniqueNum: 0, status: "Active")
+    var currentIndx = 0
     
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("ActiveItems.plist")
     let inactiveFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("InactiveItems.plist")
@@ -25,6 +26,7 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var projectSelected = ""
     var filteredArray: [Item] = []
     var filteredInactiveArray: [Item] = []
+    var selectedPickerValue = 0
     
     var removeNoneProjects: [Project] = []
     
@@ -47,6 +49,21 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         self.projectItemsTable.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let row = selectedPickerValue
+        projectDropdown.selectRow(row, inComponent: 0, animated: true)
+        
+        projectSelected = removeNoneProjects[row].name
+        
+        filteredArray = model.activeArray.filter({ $0.project == projectSelected})
+        filteredInactiveArray = model.inactiveArray.filter({ $0.project == projectSelected})
+        filteredArray = filteredArray + filteredInactiveArray
+        
+        self.projectItemsTable.reloadData()
+    }
+    
+    
     
 //MARK: PICKER VIEW METHODS
     
@@ -72,6 +89,14 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         filteredArray = filteredArray + filteredInactiveArray
         self.projectItemsTable.reloadData()
     }
+    
+//    func setDefaultValue(item: String, inComponent: Int){
+//
+//
+//     if let indexPosition = removeNoneProjects.firstIndex(of: item){
+//       pickerView.selectRow(indexPosition, inComponent: inComponent, animated: true)
+//     }
+//    }
 
 //MARK: TABLE VIEW METHODS
 
@@ -96,6 +121,10 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        
+        currentSelection = filteredArray[indexPath.row]
+        currentIndx = indexPath.row
+        
         var textField = UITextField()
         let alert = UIAlertController(title: "Edit Current Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Edit This Item", style: .default) { (action) in
@@ -122,6 +151,11 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             textField = alertTextField
         }
         alert.addAction(action)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+            print("Cancelled")
+        })
+        alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
     
@@ -168,7 +202,6 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             model.projectArray.append(tempProject)
             self.removeNoneProjects.append(tempProject)
             self.saveItems()
-            
             self.projectDropdown.reloadAllComponents()
             
             
@@ -184,6 +217,9 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Present alert controller
         present(alertController, animated: true, completion: nil)
     }
+    
+    
+    
     
     
     
@@ -206,7 +242,6 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
             
             var newItem = self.projectSelected
             var projectIndex = model.projectArray.firstIndex { $0.name == newItem}
-            
             var tempPriority = alertController.textFields?[0].text
             model.projectArray[projectIndex!].priority = Int(tempPriority!)!
             print(model.projectArray[projectIndex!].priority)
@@ -227,6 +262,107 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     
     
+    
+    @IBAction func editCycle(_ sender: UIButton) {
+        presentAlertWithPicker(title: "Enable Cycle",
+                               message: "true = cycle, false = no cycle",
+                               pickerOptions: ["true", "false"])
+        { (pickerSelectedValue) in
+            if pickerSelectedValue == "true" {
+                let newIndex = model.projectArray.firstIndex( where: { $0.name == self.projectSelected} )
+                model.projectArray[newIndex!].cycle = true
+                print("cycle of project \(model.projectArray[newIndex!].name) is now \(model.projectArray[newIndex!].cycle)")
+            } else {
+                let newIndex = model.projectArray.firstIndex( where: { $0.name == self.projectSelected} )
+                model.projectArray[newIndex!].cycle = false
+                print("cycle of project \(model.projectArray[newIndex!].name) is now \(model.projectArray[newIndex!].cycle)")
+            }
+        }
+        model.saveItems()
+        self.projectDropdown.reloadAllComponents()
+        self.projectItemsTable.reloadData()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+//MARK: - SECOND 4 ITEMS HERE
+    
+    //insert project deadline
+//    var textField = UITextField()
+    
+    
+    @IBAction func insertDeadlineProject(_ sender: UIButton) {
+        let myDatePicker: UIDatePicker = UIDatePicker()
+        myDatePicker.timeZone = .current
+        myDatePicker.preferredDatePickerStyle = .wheels
+        myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: "", preferredStyle: .alert)
+        
+        alert.view.addSubview(myDatePicker)
+        
+        let action = UIAlertAction(title: "Set Deadline To This Project", style: .default) { (action) in
+            
+//            print(myDatePicker.date)
+            print(self.projectSelected)
+            let newDate = myDatePicker.date
+            model.insertProject(deadline: newDate, proj: self.projectSelected)
+            
+            model.saveItems()
+            self.projectItemsTable.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    
+    
+   
+    @IBAction func insertProjectByHaste(_ sender: UIButton) {
+    presentAlertWithPicker(title: "Insert Project By Haste",
+                               message: "Haste options",
+                               pickerOptions: ["1", "2", "3"])
+        { (pickerSelectedValue) in
+            let newHasteValue = Int(pickerSelectedValue)
+            model.insertProjectByHaste(haste: newHasteValue!, proj: self.projectSelected)
+            self.projectItemsTable.reloadData()
+            model.saveItems()
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    //discard project
+    
+    @IBAction func discardProject(_ sender: UIButton) {
+        
+        model.discardProject(proj: projectSelected)
+        self.projectItemsTable.reloadData()
+        self.projectDropdown.reloadAllComponents()
+        model.saveItems()
+    }
+    
+    
+//MARK: - Third 3 Buttons here
     
     @IBAction func addItemProj(_ sender: UIButton) {
         
@@ -262,45 +398,8 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     
-    
-//MARK: - SECOND 3 ITEMS HERE
-    
-    //insert project deadline
-//    var textField = UITextField()
-    
-    
-    @IBAction func insertDeadlineProject(_ sender: UIButton) {
-        let myDatePicker: UIDatePicker = UIDatePicker()
-        myDatePicker.timeZone = .current
-        myDatePicker.preferredDatePickerStyle = .wheels
-        myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
-        
-        
-        
-        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: "", preferredStyle: .alert)
-        
-        alert.view.addSubview(myDatePicker)
-        
-        
-        let action = UIAlertAction(title: "Set Deadline To This Project", style: .default) { (action) in
-            
-//            print(myDatePicker.date)
-            print(self.projectSelected)
-            let newDate = myDatePicker.date
-            model.insertProject(deadline: newDate, proj: self.projectSelected)
-            
-            model.saveItems()
-            self.projectItemsTable.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(action)
-        alert.addAction(cancelAction)
-        present(alert, animated: true)
-    }
-    
-    
     //connect level
+    
     
     
     @IBAction func connectLevels(_ sender: UIButton) {
@@ -310,66 +409,136 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     
-    
-    
-    //discard project
-    
-    @IBAction func discardProject(_ sender: UIButton) {
-        model.discardProject(proj: projectSelected)
-        self.projectItemsTable.reloadData()
+    @IBAction func snipAndQuickButton(_ sender: UIButton) {
+        print(currentSelection.title)
+        model.snipAndQuick(chosenItem: currentSelection)
         model.saveItems()
+        self.projectItemsTable.reloadData()
+        
     }
     
     
-
     
     
 //MARK: - Special Functions
-//
-//    func loadItems() {
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do{
-//                model.itemArray = try decoder.decode([Item].self, from: data)
-//            } catch {
-//                print("error decoding")
-//            }
-//        }
-//
-//        if let data = try? Data(contentsOf: inactiveFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do{
-//                model.inactiveArray = try decoder.decode([Item].self, from: data)
-//            } catch {
-//                print("error decoding")
-//            }
-//        }
-//
-//        if let data = try? Data(contentsOf: saveFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do{
-//                model.savedItems = try decoder.decode([Item].self, from: data)
-//            } catch {
-//                print("error decoding")
-//            }
-//        }
-//
-//        if let data = try? Data(contentsOf: projectsFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do{
-//                model.projectArray = try decoder.decode([Project].self, from: data)
-//            } catch {
-//                print("error decoding")
-//            }
-//        }
-//
-//        if model.itemArray.count == 0 {
-//            let newItem = Item(title: "Placeholder", done: true, catego: "None", uniqueNum: 99999, status: "Active")
-//            model.itemArray.append(newItem)
-//        } else {
-//            saveItems()
-//        }
-//    }
+
+    func presentAlertWithPicker(title: String,
+                                 message: String,
+                                 pickerOptions: [String],
+                                 completion: @escaping ((_ pickerValueString: String) -> Void)) {
+            
+            // Add a picker handler to provide the picker in the alert with the needed data
+            class PickerHandler: NSObject, UIPickerViewDelegate, UIPickerViewDataSource{
+                var items: [String]
+                lazy var lastSelectedItem = items[0]
+                
+                init(items: [String]){
+                    self.items = items
+                    super.init()
+                }
+
+                func numberOfComponents(in pickerView: UIPickerView) -> Int {
+                    1
+                }
+                
+                func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+                    items.count
+                }
+                
+                func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+                    items[row]
+                }
+                
+                func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+                    print("selected item tag is \(pickerView.tag), row: \(row)")
+                    lastSelectedItem = items[row]
+                }
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                let pickerHandler = PickerHandler(items: pickerOptions)
+                let pickerView = UIPickerView(frame: .zero)
+                pickerView.delegate = pickerHandler
+                pickerView.dataSource = pickerHandler
+
+                let title = title
+                let message = message
+                let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
+                
+                let selectAction = UIAlertAction(title: "Select", style: .default){action->Void in
+                    completion(pickerHandler.lastSelectedItem)
+                }
+                alert.addAction(selectAction)
+                
+                // Add the picker view
+                alert.view.addSubview(pickerView)
+                pickerView.translatesAutoresizingMaskIntoConstraints = false
+                let constantAbovePicker: CGFloat = 70
+                let constantBelowPicker: CGFloat = 50
+                NSLayoutConstraint.activate([
+                    pickerView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor, constant:  10),
+                    pickerView.widthAnchor.constraint(equalToConstant: 250),
+                    pickerView.widthAnchor.constraint(lessThanOrEqualTo: alert.view.widthAnchor, constant: 20),
+
+                    pickerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant:  constantAbovePicker),
+                    pickerView.heightAnchor.constraint(equalToConstant: 150),
+                    alert.view.bottomAnchor.constraint(greaterThanOrEqualTo: pickerView.bottomAnchor, constant:  constantBelowPicker),
+                ])
+                
+                
+
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+
+    
+    
+    
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do{
+                model.activeArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("error decoding")
+            }
+        }
+
+        if let data = try? Data(contentsOf: inactiveFilePath!) {
+            let decoder = PropertyListDecoder()
+            do{
+                model.inactiveArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("error decoding")
+            }
+        }
+
+        if let data = try? Data(contentsOf: saveFilePath!) {
+            let decoder = PropertyListDecoder()
+            do{
+                model.savedItems = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("error decoding")
+            }
+        }
+
+        if let data = try? Data(contentsOf: projectsFilePath!) {
+            let decoder = PropertyListDecoder()
+            do{
+                model.projectArray = try decoder.decode([Project].self, from: data)
+            } catch {
+                print("error decoding")
+            }
+        }
+
+        if model.activeArray.count == 0 {
+            let newItem = Item(title: "Placeholder", timeDone: Date(), project: "None", uniqueNum: 99999, status: "Inact")
+            model.activeArray.append(newItem)
+        } else {
+            saveItems()
+        }
+    }
     
     //MARK: SAVED ITEMS
     func saveItems() {
