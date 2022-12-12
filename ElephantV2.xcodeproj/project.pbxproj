@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44058A512945C5BB000E27ED /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44058A502945C5BB000E27ED /* CalendarHelper.swift */; };
+		44058A5A2945F7D9000E27ED /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44058A582945F7D9000E27ED /* ItemCell.swift */; };
+		44058A5B2945F7D9000E27ED /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44058A592945F7D9000E27ED /* ItemCell.xib */; };
+		44058A9D29462885000E27ED /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44058A9B29462885000E27ED /* TestCell.swift */; };
+		44058A9E29462885000E27ED /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44058A9C29462885000E27ED /* TestCell.xib */; };
+		44058AA229468233000E27ED /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44058AA129468233000E27ED /* ProjectsViewController.swift */; };
 		444545472933A10300472783 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444545462933A10300472783 /* AppDelegate.swift */; };
 		444545492933A10300472783 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444545482933A10300472783 /* SceneDelegate.swift */; };
 		4445454B2933A10300472783 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4445454A2933A10300472783 /* ViewController.swift */; };
@@ -17,6 +23,9 @@
 		444545612933A10400472783 /* ElephantV2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444545602933A10400472783 /* ElephantV2Tests.swift */; };
 		4445456B2933A10400472783 /* ElephantV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4445456A2933A10400472783 /* ElephantV2UITests.swift */; };
 		4445456D2933A10400472783 /* ElephantV2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4445456C2933A10400472783 /* ElephantV2UITestsLaunchTests.swift */; };
+		4445457A2933A13F00472783 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444545792933A13F00472783 /* Item.swift */; };
+		4445457F2933A1B800472783 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4445457E2933A1B800472783 /* Model.swift */; };
+		444545812933A24600472783 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444545802933A24600472783 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44058A502945C5BB000E27ED /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		44058A582945F7D9000E27ED /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		44058A592945F7D9000E27ED /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		44058A9B29462885000E27ED /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		44058A9C29462885000E27ED /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
+		44058AA129468233000E27ED /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		444545432933A10300472783 /* ElephantV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElephantV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		444545462933A10300472783 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		444545482933A10300472783 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +66,9 @@
 		444545662933A10400472783 /* ElephantV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElephantV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4445456A2933A10400472783 /* ElephantV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElephantV2UITests.swift; sourceTree = "<group>"; };
 		4445456C2933A10400472783 /* ElephantV2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElephantV2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		444545792933A13F00472783 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4445457E2933A1B800472783 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		444545802933A24600472783 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +121,9 @@
 			children = (
 				444545462933A10300472783 /* AppDelegate.swift */,
 				444545482933A10300472783 /* SceneDelegate.swift */,
-				4445454A2933A10300472783 /* ViewController.swift */,
-				4445454C2933A10300472783 /* Main.storyboard */,
+				4445457D2933A17C00472783 /* Controller */,
+				4445457B2933A14400472783 /* Model */,
+				4445457C2933A16400472783 /* View */,
 				444545522933A10400472783 /* Assets.xcassets */,
 				444545542933A10400472783 /* LaunchScreen.storyboard */,
 				444545572933A10400472783 /* Info.plist */,
@@ -128,6 +147,38 @@
 				4445456C2933A10400472783 /* ElephantV2UITestsLaunchTests.swift */,
 			);
 			path = ElephantV2UITests;
+			sourceTree = "<group>";
+		};
+		4445457B2933A14400472783 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				444545792933A13F00472783 /* Item.swift */,
+				444545802933A24600472783 /* Project.swift */,
+				44058A502945C5BB000E27ED /* CalendarHelper.swift */,
+				4445457E2933A1B800472783 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4445457C2933A16400472783 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4445454C2933A10300472783 /* Main.storyboard */,
+				44058A582945F7D9000E27ED /* ItemCell.swift */,
+				44058A9B29462885000E27ED /* TestCell.swift */,
+				44058A9C29462885000E27ED /* TestCell.xib */,
+				44058A592945F7D9000E27ED /* ItemCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4445457D2933A17C00472783 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44058AA129468233000E27ED /* ProjectsViewController.swift */,
+				4445454A2933A10300472783 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +285,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44058A5B2945F7D9000E27ED /* ItemCell.xib in Resources */,
 				444545562933A10400472783 /* LaunchScreen.storyboard in Resources */,
 				444545532933A10400472783 /* Assets.xcassets in Resources */,
+				44058A9E29462885000E27ED /* TestCell.xib in Resources */,
 				4445454E2933A10300472783 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,9 +314,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4445457A2933A13F00472783 /* Item.swift in Sources */,
+				44058A512945C5BB000E27ED /* CalendarHelper.swift in Sources */,
+				44058AA229468233000E27ED /* ProjectsViewController.swift in Sources */,
+				44058A5A2945F7D9000E27ED /* ItemCell.swift in Sources */,
 				444545512933A10300472783 /* ElephantV2.xcdatamodeld in Sources */,
 				4445454B2933A10300472783 /* ViewController.swift in Sources */,
+				4445457F2933A1B800472783 /* Model.swift in Sources */,
 				444545472933A10300472783 /* AppDelegate.swift in Sources */,
+				44058A9D29462885000E27ED /* TestCell.swift in Sources */,
+				444545812933A24600472783 /* Project.swift in Sources */,
 				444545492933A10300472783 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

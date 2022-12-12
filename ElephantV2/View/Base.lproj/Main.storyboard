@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QKE-cT-vM7">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ElephantV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView autoresizesSubviews="NO" contentMode="TopLeft" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="150" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wuM-vD-Mrd">
+                                <rect key="frame" x="0.0" y="278" width="390" height="195"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="WB4-e4-k4r"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RKp-hx-PWm"/>
+                                </connections>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKQ-MS-hGu" userLabel="First Three Buttons">
+                                <rect key="frame" x="0.0" y="193" width="390" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-Nx-bcv">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Add Item"/>
+                                        <connections>
+                                            <action selector="addItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="urc-AZ-sWG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNf-Kq-v36">
+                                        <rect key="frame" x="135.66666666666666" y="0.0" width="118.66666666666666" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Edit Item"/>
+                                        <connections>
+                                            <action selector="editItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gk1-Dc-HgP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-Rk-W5D">
+                                        <rect key="frame" x="271.33333333333331" y="0.0" width="118.66666666666669" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Complete Item"/>
+                                        <connections>
+                                            <action selector="completeItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3vY-Mn-5pw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="54V-Lv-ydl" userLabel="Second Three Buttons">
+                                <rect key="frame" x="0.0" y="255.33333333333337" width="391" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJT-8i-C0o">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Undo Add"/>
+                                        <connections>
+                                            <action selector="undoAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v5B-Ii-ChI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTe-ST-Zdb">
+                                        <rect key="frame" x="133" y="0.0" width="125" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show More"/>
+                                        <connections>
+                                            <action selector="showMore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxa-Z9-xBS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoC-nN-IVD">
+                                        <rect key="frame" x="266" y="0.0" width="125" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Undo Complete"/>
+                                        <connections>
+                                            <action selector="undoComplete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SCK-ju-YwY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Uar-Xe-8ty" userLabel="Third Three Buttons">
+                                <rect key="frame" x="0.0" y="566" width="390" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nI-cV-yME">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="48"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Split &amp; Kick"/>
+                                        <connections>
+                                            <action selector="splitAndKick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glr-wd-nVg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Es-zfl">
+                                        <rect key="frame" x="141" y="0.0" width="108" height="48"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Item Project"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAg-I6-MFJ">
+                                        <rect key="frame" x="282" y="0.0" width="108" height="48"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Snip &amp; Quick"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="54V-Lv-ydl" firstAttribute="top" secondItem="iKQ-MS-hGu" secondAttribute="bottom" constant="31.333333333333343" id="412-Vc-yrv"/>
+                            <constraint firstItem="54V-Lv-ydl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="1" id="5VY-uO-J3C"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Uar-Xe-8ty" secondAttribute="leading" id="9U6-te-KnE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iKQ-MS-hGu" secondAttribute="trailing" id="C8T-AD-VyI"/>
+                            <constraint firstItem="Uar-Xe-8ty" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Cyb-X7-KAE"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="top" secondItem="54V-Lv-ydl" secondAttribute="bottom" constant="35.666666666666686" id="D2S-WI-hZD"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F6g-zY-VIQ"/>
+                            <constraint firstItem="Uar-Xe-8ty" firstAttribute="top" secondItem="wuM-vD-Mrd" secondAttribute="bottom" constant="15" id="JQK-bF-teH"/>
+                            <constraint firstItem="iKQ-MS-hGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K6u-EQ-joa"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="L34-lp-hEe"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rzc-HR-Z9D"/>
+                            <constraint firstItem="54V-Lv-ydl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wgh-Ec-tLd"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOk-yr-aKL"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="Uar-Xe-8ty" secondAttribute="centerX" id="g4D-g6-t9u"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gqL-Sa-IDh"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="her-UI-1tt"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mSM-V9-oOM"/>
+                            <constraint firstItem="wuM-vD-Mrd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nIH-nR-UEi"/>
+                            <constraint firstItem="iKQ-MS-hGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="105" id="tnL-lN-UMM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="12r-TP-5PX">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh Data" id="ZMQ-6d-Owt">
+                            <connections>
+                                <action selector="refreshData:" destination="BYZ-38-t0r" id="fMI-L6-fsd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Show All Projects" id="FQf-XN-RLZ">
+                            <connections>
+                                <segue destination="GkR-mo-ZkE" kind="show" id="Tfe-Kg-iZh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="firstThreeButtons" destination="iKQ-MS-hGu" id="T1a-mX-cvV"/>
+                        <outlet property="itemTableView" destination="wuM-vD-Mrd" id="ZgQ-li-Yz1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.69230769230762" y="83.175355450236964"/>
+        </scene>
+        <!--Projects View Controller-->
+        <scene sceneID="UuV-sb-IB3">
+            <objects>
+                <viewController id="GkR-mo-ZkE" customClass="ProjectsViewController" customModule="ElephantV2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BuN-X0-c9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZI-s8-bn7">
+                                <rect key="frame" x="35" y="88" width="320" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="eSo-vI-HA5"/>
+                                </constraints>
+                            </pickerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-sM-5iR">
+                                <rect key="frame" x="16" y="467" width="358" height="343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="Muc-yf-rf7"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="projectItems" id="dJk-n2-1bf">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="358" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dJk-n2-1bf" id="asU-lk-YGl">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XXi-gU-5dP" userLabel="Buttons Stack View">
+                                <rect key="frame" x="20" y="287" width="350" height="158"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-gK-Lp4" userLabel="First Three Buttons">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="75"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TZM-Za-5ev">
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Add New Project">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addProjectPressed:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="fs1-x5-sds"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="15S-HF-qGH">
+                                                <rect key="frame" x="118" y="0.0" width="114" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Edit Priority"/>
+                                                <connections>
+                                                    <action selector="editPriority:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="9A1-ZK-aaL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="GQo-dD-kNv">
+                                                <rect key="frame" x="236" y="0.0" width="114" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Add Item To This Project"/>
+                                                <connections>
+                                                    <action selector="addItemProj:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="Qnz-Dj-87I"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="2vr-WS-f0b"/>
+                                            <constraint firstAttribute="width" constant="350" id="pjS-un-jtY"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNI-bD-JWE" userLabel="Second Three Buttons">
+                                        <rect key="frame" x="0.0" y="83" width="350" height="75"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pVx-ED-hgd">
+                                                <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Insert Deadline Project"/>
+                                                <connections>
+                                                    <action selector="insertDeadlineProject:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="t9z-uQ-Qbc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-at-k58">
+                                                <rect key="frame" x="116.66666666666666" y="0.0" width="116.66666666666666" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Connect Level"/>
+                                                <connections>
+                                                    <action selector="connectLevels:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="QEj-hj-A19"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-Jg-D5S">
+                                                <rect key="frame" x="233.33333333333334" y="0.0" width="116.66666666666666" height="75"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Discard Project"/>
+                                                <connections>
+                                                    <action selector="discardProject:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="soM-By-NIR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="8dS-Et-Cjo"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="350" id="uLO-jB-Tz1"/>
+                                            <constraint firstAttribute="width" constant="350" id="zSv-UO-lT1"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z3I-C5-nOe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XXi-gU-5dP" firstAttribute="top" secondItem="bZI-s8-bn7" secondAttribute="bottom" constant="-1" id="2up-DX-OWd"/>
+                            <constraint firstItem="z3I-C5-nOe" firstAttribute="bottom" secondItem="5ba-sM-5iR" secondAttribute="bottom" id="AvG-rl-HkE"/>
+                            <constraint firstItem="5ba-sM-5iR" firstAttribute="leading" secondItem="z3I-C5-nOe" secondAttribute="leading" constant="16" id="QTY-J2-fX8"/>
+                            <constraint firstItem="5ba-sM-5iR" firstAttribute="top" secondItem="XXi-gU-5dP" secondAttribute="bottom" constant="-35" id="VNM-zk-8rf"/>
+                            <constraint firstItem="bZI-s8-bn7" firstAttribute="top" secondItem="z3I-C5-nOe" secondAttribute="top" id="YId-Bv-wc9"/>
+                            <constraint firstItem="XXi-gU-5dP" firstAttribute="centerX" secondItem="BuN-X0-c9Y" secondAttribute="centerX" id="hsP-qc-QHs"/>
+                            <constraint firstItem="bZI-s8-bn7" firstAttribute="centerX" secondItem="BuN-X0-c9Y" secondAttribute="centerX" id="hz2-cw-6E4"/>
+                            <constraint firstItem="z3I-C5-nOe" firstAttribute="trailing" secondItem="5ba-sM-5iR" secondAttribute="trailing" constant="16" id="rci-zQ-mGM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iuB-U8-NaM">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Project Details" id="buZ-PT-p3m"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="projectDropdown" destination="bZI-s8-bn7" id="e4p-YE-DLQ"/>
+                        <outlet property="projectItemsTable" destination="5ba-sM-5iR" id="keu-gQ-Bfi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ri8-nq-gRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933.8461538461538" y="82.464454976303315"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="23A-hM-Xk2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QKE-cT-vM7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KFD-aR-r22">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Vh6-oV-onj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ywd-pY-krF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.46153846153846" y="83.175355450236964"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
