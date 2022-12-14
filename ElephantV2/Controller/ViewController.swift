@@ -14,10 +14,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var currentSelection: Item = Item(title: "Placeholder", timeDone: Date(), project: "None", uniqueNum: 0, status: "Active")
     var currentIndx = 0
     var numItemsShown = 1
+    var timer = Timer()
+    var (hours, minutes, seconds) = (0, 0, 0)
     
     @IBOutlet weak var itemTableView: UITableView!
-    
     @IBOutlet weak var firstThreeButtons: UIStackView!
+    @IBOutlet weak var completeRateLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var startButtonOutlet: UIButton!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +82,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        model.saveItems()
         
 //        model.backupPlistFiles()
+        
+        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
     }
+    
+    
+    //MARK: - TIMER STACK
+    
+    
+    @IBAction func startTimerButton(_ sender: UIButton) {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.keepTimer), userInfo: nil, repeats: true)
+        startButtonOutlet.isHidden = true
+    }
+    
+    
+    @IBAction func pauseTimerButton(_ sender: UIButton) {
+        timer.invalidate()
+        startButtonOutlet.isHidden = false
+    }
+    
+    @objc func keepTimer() {
+//        fractions += 1
+//        if fractions > 99 {
+//            seconds += 1
+//            fractions = 0
+//        }
+        seconds += 1
+        
+        if seconds == 60 {
+            minutes += 1
+            seconds = 0
+        }
+        
+        if minutes == 60 {
+            hours += 1
+            minutes = 0
+        }
+        
+        let secondsString = seconds > 9 ? "\(seconds)" : "0\(seconds)"
+        let minutesString = minutes > 9 ? "\(minutes)" : "0\(minutes)"
+        let hoursString = hours > 9 ? "\(hours)" : "0\(hours)"
+        
+        timeLabel.text = "Time Spent: \(hoursString):\(minutesString):\(secondsString)"
+    }
+    
+    
+    
+    
     
     
     @IBAction func refreshData(_ sender: UIBarButtonItem) {
@@ -143,6 +194,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.itemTableView.reloadData()
         self.currentSelection = model.activeArray[0]
         
+        timer.invalidate()
+        (hours, minutes, seconds) = (0, 0, 0)
+        timeLabel.text = "00:00:00"
+        startButtonOutlet.isHidden = false
     }
     
     
@@ -269,6 +324,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             alert.dismiss(animated: true, completion: nil)
         })
     }
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func completeRateButtonCalc(_ sender: UIButton) {
+        model.calculateCompleteRate()
+        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
+        
+        
+//        let newVar = model.savedItems.count
+//        let newX = model.savedItems[newVar-10]
+//        print(newX.timeDone)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

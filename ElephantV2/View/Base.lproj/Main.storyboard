@@ -86,7 +86,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Uar-Xe-8ty" userLabel="Third Three Buttons">
                                 <rect key="frame" x="0.0" y="566" width="390" height="48"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nI-cV-yME">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nI-cV-yME">
                                         <rect key="frame" x="0.0" y="0.0" width="108" height="48"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Split &amp; Kick"/>
@@ -94,7 +94,7 @@
                                             <action selector="splitAndKick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Glr-wd-nVg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Es-zfl">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfL-Es-zfl">
                                         <rect key="frame" x="141" y="0.0" width="108" height="48"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Show Item Project"/>
@@ -103,12 +103,61 @@
                                             <segue destination="GkR-mo-ZkE" kind="show" identifier="showProjectsOfItem" id="0G3-4y-T6H"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84m-SH-d5w">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84m-SH-d5w">
                                         <rect key="frame" x="282" y="0.0" width="108" height="48"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Backup Plist"/>
                                         <connections>
                                             <action selector="backupPlistButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1rr-O0-5eG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-XC-f1A">
+                                <rect key="frame" x="132.66666666666666" y="668" width="124.99999999999997" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PrE-Oi-kbb"/>
+                                    <constraint firstAttribute="width" constant="125" id="wgO-3C-n3E"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calculate Complete Rate"/>
+                                <connections>
+                                    <action selector="completeRateButtonCalc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3Y-Uo-EEv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Complete Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF1-Rx-1IL">
+                                <rect key="frame" x="16" y="751" width="358" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="1q9-bh-GXa"/>
+                                    <constraint firstAttribute="height" constant="30" id="GaR-66-1Ae"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-Az-Lgk" userLabel="Timer Stack">
+                                <rect key="frame" x="25" y="118" width="365" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rm0-wO-ySr">
+                                        <rect key="frame" x="0.0" y="0.0" width="96.333333333333329" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Start Timer"/>
+                                        <connections>
+                                            <action selector="startTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iV4-2b-57E"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Timer Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8l-tw-JYy">
+                                        <rect key="frame" x="135.33333333333334" y="0.0" width="89.333333333333343" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxn-UU-UBS">
+                                        <rect key="frame" x="263.66666666666669" y="0.0" width="101.33333333333331" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Pause Timer"/>
+                                        <connections>
+                                            <action selector="pauseTimerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3CG-4e-S9w"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -119,7 +168,9 @@
                         <constraints>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="top" secondItem="iKQ-MS-hGu" secondAttribute="bottom" constant="31.333333333333343" id="412-Vc-yrv"/>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="1" id="5VY-uO-J3C"/>
+                            <constraint firstItem="bHf-XC-f1A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7hH-4L-Zs8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Uar-Xe-8ty" secondAttribute="leading" id="9U6-te-KnE"/>
+                            <constraint firstItem="iKQ-MS-hGu" firstAttribute="top" secondItem="dMx-Az-Lgk" secondAttribute="bottom" constant="44" id="AmU-Yv-YvA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iKQ-MS-hGu" secondAttribute="trailing" id="C8T-AD-VyI"/>
                             <constraint firstItem="Uar-Xe-8ty" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Cyb-X7-KAE"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="top" secondItem="54V-Lv-ydl" secondAttribute="bottom" constant="35.666666666666686" id="D2S-WI-hZD"/>
@@ -127,8 +178,13 @@
                             <constraint firstItem="Uar-Xe-8ty" firstAttribute="top" secondItem="wuM-vD-Mrd" secondAttribute="bottom" constant="15" id="JQK-bF-teH"/>
                             <constraint firstItem="iKQ-MS-hGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K6u-EQ-joa"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="L34-lp-hEe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bHf-XC-f1A" secondAttribute="bottom" constant="67" id="OxJ-Ov-TqV"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rzc-HR-Z9D"/>
+                            <constraint firstItem="DF1-Rx-1IL" firstAttribute="top" secondItem="bHf-XC-f1A" secondAttribute="bottom" constant="8" symbolic="YES" id="V3i-l1-G9b"/>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wgh-Ec-tLd"/>
+                            <constraint firstItem="dMx-Az-Lgk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="YxO-S0-uh6"/>
+                            <constraint firstItem="dMx-Az-Lgk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="egr-4g-JYm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMx-Az-Lgk" secondAttribute="trailing" id="f4x-0n-eBs"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOk-yr-aKL"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="Uar-Xe-8ty" secondAttribute="centerX" id="g4D-g6-t9u"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gqL-Sa-IDh"/>
@@ -136,6 +192,8 @@
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mSM-V9-oOM"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nIH-nR-UEi"/>
                             <constraint firstItem="iKQ-MS-hGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="105" id="tnL-lN-UMM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DF1-Rx-1IL" secondAttribute="bottom" constant="29" id="vr3-Nd-hdy"/>
+                            <constraint firstItem="bHf-XC-f1A" firstAttribute="top" secondItem="Uar-Xe-8ty" secondAttribute="bottom" constant="29" id="xaR-Th-BNH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="12r-TP-5PX">
@@ -151,8 +209,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="completeRateLabel" destination="DF1-Rx-1IL" id="mLE-Bm-bNH"/>
                         <outlet property="firstThreeButtons" destination="iKQ-MS-hGu" id="T1a-mX-cvV"/>
                         <outlet property="itemTableView" destination="wuM-vD-Mrd" id="ZgQ-li-Yz1"/>
+                        <outlet property="startButtonOutlet" destination="Rm0-wO-ySr" id="DHH-oS-Mug"/>
+                        <outlet property="timeLabel" destination="k8l-tw-JYy" id="o3G-CR-lQM"/>
+                        <outlet property="timerLabel" destination="k8l-tw-JYy" id="kGe-fX-E57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

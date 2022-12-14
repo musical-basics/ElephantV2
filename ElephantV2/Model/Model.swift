@@ -97,7 +97,7 @@ class Model {
         for randItem in savedItems {
             if limitCounter < 30 {
                 if let checkNil = randItem.timeDone {
-                    let components = calendar.dateComponents([.day], from: randItem.timeDone!)
+                    let components = calendar.dateComponents([.day], from: checkNil)
                     oneArray.append(components.day!)
                     limitCounter += 1
                 } else {
@@ -149,10 +149,7 @@ class Model {
         uniqueNumCounter -= 1
     }
     
-    func calcCompleteRate() {
-        
-    }
-    
+
     
     
     
