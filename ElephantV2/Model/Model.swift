@@ -17,6 +17,7 @@ class Model {
     var uniqueNumCounter: Int = 0
     
     var completeRate = 2
+    var dailyRate = 0
     var insertArray: [Item] = []
     
     let calendar = Calendar.current
@@ -94,11 +95,19 @@ class Model {
     func calculateCompleteRate() {
         var oneArray: [Int] = []
         var limitCounter = 0
-        for randItem in savedItems {
+        let currentCount = savedItems.count
+//        print(savedItems[currentCount-1])
+        
+        let reversedArray = Array(savedItems.reversed())
+        
+        
+        
+        for randItem in reversedArray {
             if limitCounter < 30 {
                 if let checkNil = randItem.timeDone {
                     let components = calendar.dateComponents([.day], from: checkNil)
                     oneArray.append(components.day!)
+//                    print(checkNil)
                     limitCounter += 1
                 } else {
                     limitCounter += 1
@@ -119,6 +128,8 @@ class Model {
                 numerator = numerator + itemsDone
             }
         }
+        print(numerator)
+        print(denominator)
 
         if denominator == 0 {
             averageRate = 10
@@ -130,8 +141,29 @@ class Model {
             averageRate = 6
         }
         completeRate = Int(averageRate)
-
     }
+    
+    
+    func calculateDailyRate() {
+        var tempVar = 0
+        for randItem in savedItems {
+            if let whatIsDate = randItem.timeDone {
+                let newVar = Calendar.current.isDateInToday(whatIsDate)
+                if newVar {
+                    tempVar += 1
+                }
+            }
+            
+        }
+        
+        dailyRate = tempVar
+        
+
+        
+        
+        
+    }
+    
     
     
     func addItemNoneProject(itemTitle: String) {

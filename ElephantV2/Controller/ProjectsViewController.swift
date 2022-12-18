@@ -332,7 +332,7 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     @IBAction func insertProjectByHaste(_ sender: UIButton) {
     presentAlertWithPicker(title: "Insert Project By Haste",
                                message: "Haste options",
-                               pickerOptions: ["1", "2", "3"])
+                               pickerOptions: ["1", "2", "3", "4", "5"])
         { (pickerSelectedValue) in
             let newHasteValue = Int(pickerSelectedValue)
             model.insertProjectByHaste(haste: newHasteValue!, proj: self.projectSelected)

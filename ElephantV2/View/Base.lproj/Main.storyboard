@@ -25,27 +25,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="RKp-hx-PWm"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKQ-MS-hGu" userLabel="First Three Buttons">
-                                <rect key="frame" x="0.0" y="193" width="390" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKQ-MS-hGu" userLabel="First Three Buttons">
+                                <rect key="frame" x="0.0" y="193" width="390" height="52.666666666666657"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-Nx-bcv">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-Nx-bcv">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="52.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add Item"/>
                                         <connections>
                                             <action selector="addItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="urc-AZ-sWG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNf-Kq-v36">
-                                        <rect key="frame" x="135.66666666666666" y="0.0" width="118.66666666666666" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNf-Kq-v36">
+                                        <rect key="frame" x="135.66666666666666" y="0.0" width="118.66666666666666" height="52.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Edit Item"/>
                                         <connections>
                                             <action selector="editItem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gk1-Dc-HgP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-Rk-W5D">
-                                        <rect key="frame" x="271.33333333333331" y="0.0" width="118.66666666666669" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-Rk-W5D">
+                                        <rect key="frame" x="271.33333333333331" y="0.0" width="118.66666666666669" height="52.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Complete Item"/>
                                         <connections>
@@ -54,7 +54,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="54V-Lv-ydl" userLabel="Second Three Buttons">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="54V-Lv-ydl" userLabel="Second Three Buttons">
                                 <rect key="frame" x="0.0" y="255.33333333333337" width="391" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJT-8i-C0o">
@@ -73,7 +73,7 @@
                                             <action selector="showMore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxa-Z9-xBS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoC-nN-IVD">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoC-nN-IVD">
                                         <rect key="frame" x="266" y="0.0" width="125" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Undo Complete"/>
@@ -113,28 +113,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-XC-f1A">
-                                <rect key="frame" x="132.66666666666666" y="668" width="124.99999999999997" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="PrE-Oi-kbb"/>
-                                    <constraint firstAttribute="width" constant="125" id="wgO-3C-n3E"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Calculate Complete Rate"/>
-                                <connections>
-                                    <action selector="completeRateButtonCalc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3Y-Uo-EEv"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Complete Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF1-Rx-1IL">
-                                <rect key="frame" x="16" y="751" width="358" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="1q9-bh-GXa"/>
-                                    <constraint firstAttribute="height" constant="30" id="GaR-66-1Ae"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="dMx-Az-Lgk" userLabel="Timer Stack">
                                 <rect key="frame" x="25" y="118" width="365" height="31"/>
                                 <subviews>
@@ -162,27 +140,64 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-XC-f1A">
+                                <rect key="frame" x="132.66666666666666" y="612.66666666666663" width="124.99999999999997" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PrE-Oi-kbb"/>
+                                    <constraint firstAttribute="width" constant="125" id="wgO-3C-n3E"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calculate Relevant Numbers"/>
+                                <connections>
+                                    <action selector="completeRateButtonCalc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3Y-Uo-EEv"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B1g-CU-A02">
+                                <rect key="frame" x="16" y="680" width="360" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF1-Rx-1IL">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="360" id="1q9-bh-GXa"/>
+                                            <constraint firstAttribute="height" constant="30" id="GaR-66-1Ae"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-Gx-Pns">
+                                        <rect key="frame" x="0.0" y="38" width="360" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FZF-mW-yP3"/>
+                                            <constraint firstAttribute="width" constant="360" id="NVp-cz-qoA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="top" secondItem="iKQ-MS-hGu" secondAttribute="bottom" constant="31.333333333333343" id="412-Vc-yrv"/>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="1" id="5VY-uO-J3C"/>
-                            <constraint firstItem="bHf-XC-f1A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7hH-4L-Zs8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="Uar-Xe-8ty" secondAttribute="leading" id="9U6-te-KnE"/>
                             <constraint firstItem="iKQ-MS-hGu" firstAttribute="top" secondItem="dMx-Az-Lgk" secondAttribute="bottom" constant="44" id="AmU-Yv-YvA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iKQ-MS-hGu" secondAttribute="trailing" id="C8T-AD-VyI"/>
                             <constraint firstItem="Uar-Xe-8ty" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Cyb-X7-KAE"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="top" secondItem="54V-Lv-ydl" secondAttribute="bottom" constant="35.666666666666686" id="D2S-WI-hZD"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="F6g-zY-VIQ"/>
+                            <constraint firstItem="bHf-XC-f1A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FaZ-qS-fgK"/>
                             <constraint firstItem="Uar-Xe-8ty" firstAttribute="top" secondItem="wuM-vD-Mrd" secondAttribute="bottom" constant="15" id="JQK-bF-teH"/>
                             <constraint firstItem="iKQ-MS-hGu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K6u-EQ-joa"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="L34-lp-hEe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bHf-XC-f1A" secondAttribute="bottom" constant="67" id="OxJ-Ov-TqV"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Rzc-HR-Z9D"/>
-                            <constraint firstItem="DF1-Rx-1IL" firstAttribute="top" secondItem="bHf-XC-f1A" secondAttribute="bottom" constant="8" symbolic="YES" id="V3i-l1-G9b"/>
+                            <constraint firstItem="DF1-Rx-1IL" firstAttribute="firstBaseline" secondItem="bHf-XC-f1A" secondAttribute="baseline" constant="24.333333333333332" symbolType="layoutAnchor" id="Tb8-nA-Eya"/>
                             <constraint firstItem="54V-Lv-ydl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wgh-Ec-tLd"/>
                             <constraint firstItem="dMx-Az-Lgk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="YxO-S0-uh6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B1g-CU-A02" secondAttribute="bottom" constant="62" id="crM-gb-E3d"/>
                             <constraint firstItem="dMx-Az-Lgk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="egr-4g-JYm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMx-Az-Lgk" secondAttribute="trailing" id="f4x-0n-eBs"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOk-yr-aKL"/>
@@ -191,9 +206,8 @@
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="her-UI-1tt"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mSM-V9-oOM"/>
                             <constraint firstItem="wuM-vD-Mrd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nIH-nR-UEi"/>
+                            <constraint firstItem="bHf-XC-f1A" firstAttribute="top" secondItem="Uar-Xe-8ty" secondAttribute="bottom" constant="-4.6666666666666288" id="oQu-Jq-2ax"/>
                             <constraint firstItem="iKQ-MS-hGu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="105" id="tnL-lN-UMM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DF1-Rx-1IL" secondAttribute="bottom" constant="29" id="vr3-Nd-hdy"/>
-                            <constraint firstItem="bHf-XC-f1A" firstAttribute="top" secondItem="Uar-Xe-8ty" secondAttribute="bottom" constant="29" id="xaR-Th-BNH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="12r-TP-5PX">
@@ -210,6 +224,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="completeRateLabel" destination="DF1-Rx-1IL" id="mLE-Bm-bNH"/>
+                        <outlet property="dailyRateLabel" destination="QcS-Gx-Pns" id="R5B-tI-0xe"/>
                         <outlet property="firstThreeButtons" destination="iKQ-MS-hGu" id="T1a-mX-cvV"/>
                         <outlet property="itemTableView" destination="wuM-vD-Mrd" id="ZgQ-li-Yz1"/>
                         <outlet property="startButtonOutlet" destination="Rm0-wO-ySr" id="DHH-oS-Mug"/>

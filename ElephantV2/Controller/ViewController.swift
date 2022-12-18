@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dailyRateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBAction func startTimerButton(_ sender: UIButton) {
+        startTimer()
+    }
+    
+    func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.keepTimer), userInfo: nil, repeats: true)
         startButtonOutlet.isHidden = true
     }
@@ -198,6 +203,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         (hours, minutes, seconds) = (0, 0, 0)
         timeLabel.text = "00:00:00"
         startButtonOutlet.isHidden = false
+        startTimer()
     }
     
     
@@ -335,7 +341,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         model.calculateCompleteRate()
         completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
         
+        model.calculateDailyRate()
+        dailyRateLabel.text = "Daily Rate is \(model.dailyRate)"
         
+//        let newProj = "Fans Pieces video finish"
+//        let currentIndex = model.activeArray.firstIndex { $0.project == newProj }
+//        print(currentIndex)
 //        let newVar = model.savedItems.count
 //        let newX = model.savedItems[newVar-10]
 //        print(newX.timeDone)
