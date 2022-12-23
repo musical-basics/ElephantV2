@@ -221,7 +221,6 @@ class Model {
             }
             
         }
-
     }
     
     
@@ -246,6 +245,8 @@ class Model {
 //        print(activeArray[currentIndex!].title)
 //        print(activeArray[currentIndex!].timeDone)
     }
+    
+    
     
     func uncompleteItem() {
         let currentSavedItemsCount = savedItems.count

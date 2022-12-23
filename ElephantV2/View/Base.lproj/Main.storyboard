@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZI-s8-bn7">
-                                <rect key="frame" x="20" y="88" width="320" height="150"/>
+                                <rect key="frame" x="35" y="88" width="320" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="eSo-vI-HA5"/>
                                 </constraints>
@@ -268,10 +268,10 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XXi-gU-5dP" userLabel="Buttons Stack View">
-                                <rect key="frame" x="0.0" y="268" width="360" height="154.33333333333337"/>
+                                <rect key="frame" x="0.0" y="268" width="390" height="132"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-gK-Lp4" userLabel="First Three Buttons">
-                                        <rect key="frame" x="5" y="0.0" width="350" height="35"/>
+                                        <rect key="frame" x="20" y="0.0" width="350" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="TZM-Za-5ev">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="35"/>
@@ -310,10 +310,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNI-bD-JWE" userLabel="Second Three Buttons">
-                                        <rect key="frame" x="5" y="55" width="350" height="44.333333333333343"/>
+                                        <rect key="frame" x="20" y="55" width="350" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="pVx-ED-hgd">
-                                                <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="44.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Insert Deadline Project">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
@@ -323,7 +323,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Hh-rn-7jS">
-                                                <rect key="frame" x="116.66666666666666" y="0.0" width="116.66666666666666" height="44.333333333333336"/>
+                                                <rect key="frame" x="116.66666666666666" y="0.0" width="116.66666666666666" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Insert Project By Haste">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
@@ -333,7 +333,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-Jg-D5S">
-                                                <rect key="frame" x="233.33333333333334" y="0.0" width="116.66666666666666" height="44.333333333333336"/>
+                                                <rect key="frame" x="233.33333333333334" y="0.0" width="116.66666666666666" height="35"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Discard Project">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
@@ -350,10 +350,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Evf-zO-UV3" userLabel="Third Three Buttons">
-                                        <rect key="frame" x="5" y="119.33333333333331" width="350" height="35"/>
+                                        <rect key="frame" x="20" y="110" width="350" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="GQo-dD-kNv">
-                                                <rect key="frame" x="0.0" y="0.0" width="113.33333333333333" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="113.33333333333333" height="22"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Add Item To This Project">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
@@ -363,7 +363,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-at-k58">
-                                                <rect key="frame" x="118.33333333333334" y="0.0" width="113.33333333333334" height="35"/>
+                                                <rect key="frame" x="118.33333333333334" y="0.0" width="113.33333333333334" height="22"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Connect Level">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
@@ -373,7 +373,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rer-67-OQZ">
-                                                <rect key="frame" x="236.66666666666666" y="0.0" width="113.33333333333334" height="35"/>
+                                                <rect key="frame" x="236.66666666666666" y="0.0" width="113.33333333333334" height="22"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Snip And Quick">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
