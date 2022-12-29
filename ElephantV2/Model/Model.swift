@@ -88,6 +88,7 @@ class Model {
 //
         uniqueNumCounter = activeArray.count + inactiveArray.count + savedItems.count
         calculateCompleteRate()
+        calculateDailyRate()
         
     }
     
@@ -242,6 +243,8 @@ class Model {
         activeArray[currentIndex!].timeDone = Date()
         savedItems.append(activeArray[currentIndex!])
         activeArray.remove(at: currentIndex!)
+        calculateCompleteRate()
+        calculateDailyRate()
 //        print(activeArray[currentIndex!].title)
 //        print(activeArray[currentIndex!].timeDone)
     }

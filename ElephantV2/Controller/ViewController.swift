@@ -83,6 +83,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        model.saveItems()
         
 //        model.backupPlistFiles()
+        completeRateCalc()
+        
         
         completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
     }
@@ -198,6 +200,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         model.saveItems()
         self.itemTableView.reloadData()
         self.currentSelection = model.activeArray[0]
+        
         
         timer.invalidate()
         (hours, minutes, seconds) = (0, 0, 0)
@@ -334,7 +337,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     
-    
+    func completeRateCalc() {
+        model.calculateCompleteRate()
+        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
+        
+        model.calculateDailyRate()
+        dailyRateLabel.text = "Daily Rate is \(model.dailyRate)"
+    }
     
     
     @IBAction func completeRateButtonCalc(_ sender: UIButton) {
