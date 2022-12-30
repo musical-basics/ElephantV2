@@ -201,7 +201,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.itemTableView.reloadData()
         self.currentSelection = model.activeArray[0]
         
-        
+        completeRateCalc()
         timer.invalidate()
         (hours, minutes, seconds) = (0, 0, 0)
         timeLabel.text = "00:00:00"

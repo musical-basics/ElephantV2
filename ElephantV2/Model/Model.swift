@@ -243,8 +243,7 @@ class Model {
         activeArray[currentIndex!].timeDone = Date()
         savedItems.append(activeArray[currentIndex!])
         activeArray.remove(at: currentIndex!)
-        calculateCompleteRate()
-        calculateDailyRate()
+
 //        print(activeArray[currentIndex!].title)
 //        print(activeArray[currentIndex!].timeDone)
     }
@@ -300,6 +299,44 @@ class Model {
         }
 
     }
+    
+    
+    func insertProjectByPriority(priority: Int, proj: String) {
+
+        let filteredActiveArray = activeArray.filter({ $0.project == proj})
+        let filteredInactiveArray = inactiveArray.filter({ $0.project == proj})
+        
+        var indexHighest: Float = 0
+        
+        if filteredActiveArray.count == 0 {
+            indexHighest = 0
+        } else {
+            // check where the last item
+            let levelCheck = activeArray.lastIndex { $0.project == proj }
+            indexHighest = Float(levelCheck!)
+        }
+
+        let rateOfInsertion = Float(activeArray.count) / Float(priority)
+        var counter = 1
+        
+        for item in filteredInactiveArray {
+            if indexHighest >= Float(activeArray.count) {
+                print("Not adding anymore items for \(proj) with priority \(priority)")
+            } else {
+                let currentIndex = inactiveArray.firstIndex { $0.uniqueNum == item.uniqueNum }
+                inactiveArray[currentIndex!].status = "Active"
+                let itemAdded = inactiveArray[currentIndex!]
+                activeArray.insert(itemAdded, at: Int(indexHighest + rateOfInsertion))
+                inactiveArray.remove(at: currentIndex!)
+                indexHighest = indexHighest + (rateOfInsertion * Float(counter))
+                counter += 1
+            }
+        }
+        
+        
+    }
+    
+    
     
     func insertProjectByHaste(haste: Int, proj: String) {
         var tempArray: [Item] = []
