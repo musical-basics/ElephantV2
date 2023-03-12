@@ -98,7 +98,7 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 //     }
 //    }
 
-//MARK: TABLE VIEW METHODS
+//MARK: - TABLE VIEW METHODS
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        removeNoneProjects = filteredArray.filter({ $0.catego != "None"})
@@ -343,6 +343,18 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
+    @IBAction func insertProjByPriority(_ sender: UIButton) {
+        presentAlertWithPicker(title: "Insert Project By Priority",
+                                   message: "Priority options",
+                                   pickerOptions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"])
+            { (pickerSelectedValue) in
+                let newPriorityValue = Int(pickerSelectedValue)
+                model.insertProjectByPriority(priority: newPriorityValue!, proj: self.projectSelected)
+                self.projectItemsTable.reloadData()
+                model.saveItems()
+            }
+            
+    }
     
     
     

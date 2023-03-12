@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var startButtonOutlet: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dailyRateLabel: UILabel!
+    @IBOutlet weak var totalTasksLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,11 +84,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        model.saveItems()
         
 //        model.backupPlistFiles()
+        
         completeRateCalc()
+//        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
         
         
-        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
+        
+        totalTasksLabel.text = "Total Tasks: \(model.activeArray.count)"
+        
+        
     }
+    
     
     
     //MARK: - TIMER STACK
@@ -207,6 +214,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         timeLabel.text = "00:00:00"
         startButtonOutlet.isHidden = false
         startTimer()
+        totalTasksLabel.text = "Total Tasks: \(model.activeArray.count)"
     }
     
     
@@ -338,11 +346,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func completeRateCalc() {
-        model.calculateCompleteRate()
-        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
-        
-        model.calculateDailyRate()
-        dailyRateLabel.text = "Daily Rate is \(model.dailyRate)"
+//        model.calculateCompleteRate()
+//        completeRateLabel.text = "Comp Rate Is \(model.completeRate)"
+//
+//        model.calculateDailyRate()
+//        dailyRateLabel.text = "Daily Rate is \(model.dailyRate)"
     }
     
     

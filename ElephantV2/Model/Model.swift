@@ -33,6 +33,18 @@ class Model {
         
         
         loadItems()
+        
+        
+        if projectArray.isEmpty {
+            let noneProject = Project(name: "None", completed: false, priority: 100000, cycle: false, deadline: nil)
+            let pianoProject = Project(name: "Piano", completed: false, priority: 3, cycle: false, deadline: nil)
+            projectArray = [noneProject, pianoProject]
+            activeArray = [Item(title: "First Item", timeDone: Date(), project: "Piano", uniqueNum: 1, status: "Active"),
+                           Item(title: "Second Item", timeDone: Date(), project: "None", uniqueNum: 2, status: "Active")]
+        } else {
+            print("good to go")
+        }
+        
 //        activeArray =
 //        [
 //            Item(title: "First Item", timeDone: Date(), project: "Wix", uniqueNum: 1, status: "Active"),
@@ -90,7 +102,10 @@ class Model {
         calculateCompleteRate()
         calculateDailyRate()
         
+        
     }
+    
+    
     
     
     func calculateCompleteRate() {
@@ -320,16 +335,19 @@ class Model {
         var counter = 1
         
         for item in filteredInactiveArray {
+            
+            indexHighest = indexHighest + rateOfInsertion
             if indexHighest >= Float(activeArray.count) {
                 print("Not adding anymore items for \(proj) with priority \(priority)")
             } else {
                 let currentIndex = inactiveArray.firstIndex { $0.uniqueNum == item.uniqueNum }
                 inactiveArray[currentIndex!].status = "Active"
                 let itemAdded = inactiveArray[currentIndex!]
-                activeArray.insert(itemAdded, at: Int(indexHighest + rateOfInsertion))
+                activeArray.insert(itemAdded, at: Int(indexHighest))
                 inactiveArray.remove(at: currentIndex!)
-                indexHighest = indexHighest + (rateOfInsertion * Float(counter))
+
                 counter += 1
+                print("we added item \(itemAdded.title) from project \(proj) at index \(indexHighest)")
             }
         }
         

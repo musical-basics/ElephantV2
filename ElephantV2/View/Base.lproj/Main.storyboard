@@ -26,10 +26,10 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKQ-MS-hGu" userLabel="First Three Buttons">
-                                <rect key="frame" x="0.0" y="193" width="390" height="52.666666666666657"/>
+                                <rect key="frame" x="0.0" y="193" width="390" height="90.666666666666686"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-Nx-bcv">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="52.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="118.66666666666667" height="90.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Add Item"/>
                                         <connections>
@@ -37,7 +37,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNf-Kq-v36">
-                                        <rect key="frame" x="135.66666666666666" y="0.0" width="118.66666666666666" height="52.666666666666664"/>
+                                        <rect key="frame" x="135.66666666666666" y="0.0" width="118.66666666666666" height="90.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Edit Item"/>
                                         <connections>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoY-Rk-W5D">
-                                        <rect key="frame" x="271.33333333333331" y="0.0" width="118.66666666666669" height="52.666666666666664"/>
+                                        <rect key="frame" x="271.33333333333331" y="0.0" width="118.66666666666669" height="90.666666666666671"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Complete Item"/>
                                         <connections>
@@ -141,7 +141,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-XC-f1A">
-                                <rect key="frame" x="132.66666666666666" y="612.66666666666663" width="124.99999999999997" height="75"/>
+                                <rect key="frame" x="132.66666666666666" y="574.66666666666663" width="124.99999999999997" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="PrE-Oi-kbb"/>
                                     <constraint firstAttribute="width" constant="125" id="wgO-3C-n3E"/>
@@ -153,7 +153,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B1g-CU-A02">
-                                <rect key="frame" x="16" y="680" width="360" height="68"/>
+                                <rect key="frame" x="16" y="642" width="360" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF1-Rx-1IL">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
@@ -165,8 +165,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-Gx-Pns">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Tasks Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSq-0g-lnI">
                                         <rect key="frame" x="0.0" y="38" width="360" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="AQw-lx-dGR"/>
+                                            <constraint firstAttribute="width" constant="360" id="Egr-dS-XKX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcS-Gx-Pns">
+                                        <rect key="frame" x="0.0" y="76" width="360" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="FZF-mW-yP3"/>
                                             <constraint firstAttribute="width" constant="360" id="NVp-cz-qoA"/>
@@ -230,6 +240,7 @@
                         <outlet property="startButtonOutlet" destination="Rm0-wO-ySr" id="DHH-oS-Mug"/>
                         <outlet property="timeLabel" destination="k8l-tw-JYy" id="o3G-CR-lQM"/>
                         <outlet property="timerLabel" destination="k8l-tw-JYy" id="kGe-fX-E57"/>
+                        <outlet property="totalTasksLabel" destination="VSq-0g-lnI" id="XSs-nW-TLR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -325,11 +336,11 @@
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Hh-rn-7jS">
                                                 <rect key="frame" x="116.66666666666666" y="0.0" width="116.66666666666666" height="35"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Insert Project By Haste">
+                                                <buttonConfiguration key="configuration" style="plain" title="Insert Project By Priority">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="insertProjectByHaste:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="av5-6o-yyw"/>
+                                                    <action selector="insertProjByPriority:" destination="GkR-mo-ZkE" eventType="touchUpInside" id="ZyZ-J0-fF1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1a4-Jg-D5S">
