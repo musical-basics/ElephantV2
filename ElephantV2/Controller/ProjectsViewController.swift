@@ -162,6 +162,68 @@ class ProjectsViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
 //MARK: - Bar Button
     
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Edit Project Name", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Edit Project Name", style: .default) { (action) in
+            
+            var projectIndex = model.projectArray.firstIndex { $0.name == self.projectSelected}
+            
+            let tempTitle = textField.text!
+            
+            model.projectArray[projectIndex!].name = tempTitle
+            
+            var allItemsWithProjectName = model.activeArray.filter{$0.project == self.projectSelected}
+            
+            var newActiveList: [Item] = []
+            var newInactiveList: [Item] = []
+            for item in model.activeArray {
+                if item.project == self.projectSelected {
+                    var newItem = item
+                    newItem.project = tempTitle
+                    newActiveList.append(newItem)
+                } else {
+                    newActiveList.append(item)
+                }
+            }
+            
+            for item in model.inactiveArray {
+                if item.project == self.projectSelected {
+                    var newItem = item
+                    newItem.project = tempTitle
+                    newInactiveList.append(newItem)
+                } else {
+                    newInactiveList.append(item)
+                }
+            }
+            
+            model.activeArray = newActiveList
+            model.inactiveArray = newInactiveList
+            
+//            let currentProject = model.projectArray.filter{$0.name == self.projectSelected}
+            
+            
+            
+            self.saveItems()
+            self.projectItemsTable.reloadData()
+            self.projectDropdown.reloadAllComponents()
+        }
+
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Change name here"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {(_ action: UIAlertAction) -> Void in
+            print("Cancelled")
+        })
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+
+        
+    }
     
     
     

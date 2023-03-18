@@ -282,8 +282,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func splitAndKick(_ sender: UIButton) {
 //        let myItem = currentSelection
         model.splitAndKick(currentItem: currentSelection, currentIndx: currentIndx)
+        model.activateNextItem()
         model.saveItems()
         self.itemTableView.reloadData()
+        
+        self.currentSelection = model.activeArray[0]
+        
+        completeRateCalc()
+        timer.invalidate()
+        (hours, minutes, seconds) = (0, 0, 0)
+        timeLabel.text = "00:00:00"
+        startButtonOutlet.isHidden = false
+        startTimer()
+        totalTasksLabel.text = "Total Tasks: \(model.activeArray.count)"
     }
     
     

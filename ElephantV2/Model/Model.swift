@@ -425,22 +425,44 @@ class Model {
         let currentProject = currentItem.project
         activeArray[currentIndx].status = "Complete"
         activeArray.remove(at: currentIndx)
+        savedItems.append(currentItem)
         
         var tempItem = currentItem
         tempItem.uniqueNum = uniqueNumCounter + 1
 
-        for tempNum in 1...activeArray.count {
-            let currentCounter = tempNum - 1
-            let nextItem: Item
-            if activeArray[currentCounter].project == currentProject {
-                nextItem = activeArray[currentCounter]
-                activeArray[currentCounter] = tempItem
-                tempItem = nextItem
+        var newArray: [Item] = []
+        
+        for eachItem in activeArray {
+            if eachItem.project == currentProject {
+                let oldItem = eachItem
+                newArray.append(tempItem)
+                tempItem = oldItem
+            } else {
+                newArray.append(eachItem)
             }
-            
-            inactiveArray.insert(tempItem, at: 0)
-            
         }
+//        newArray.append(tempItem)
+        
+        inactiveArray.insert(tempItem, at: 0) //this is the last "old item"
+        
+        activeArray = newArray
+//        for tempNum in 1...activeArray.count {
+//            let currentCounter = tempNum - 1
+//            let nextItem: Item
+//
+//            if activeArray[currentCounter].project == currentProject {
+//                nextItem = activeArray[currentCounter]
+//                activeArray[currentCounter] = tempItem
+//                tempItem = nextItem
+//            } else {
+//
+//            }
+//
+//            inactiveArray.insert(tempItem, at: 0)
+//
+//        }
+        
+        
     }
     
     
